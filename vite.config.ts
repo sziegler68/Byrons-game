@@ -15,22 +15,24 @@ export default defineConfig({
         short_name: "Byron's Game",
         description: "A fun educational game for kids!",
         theme_color: '#ffffff',
-        start_url: '/',
+        background_color: '#ffffff',
+        start_url: '/Byrons-game/',
+        scope: '/Byrons-game/',
         display: 'fullscreen',
         orientation: 'landscape',
         icons: [
           {
-            src: 'pwa-192x192.png',
+            src: '/Byrons-game/pwa-192x192.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'pwa-512x512.png',
+            src: '/Byrons-game/pwa-512x512.png',
             sizes: '512x512',
             type: 'image/png'
           },
           {
-            src: 'pwa-512x512.png',
+            src: '/Byrons-game/pwa-512x512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'
