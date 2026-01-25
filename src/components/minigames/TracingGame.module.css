@@ -95,3 +95,29 @@
         opacity: 1;
     }
 }
+
+/* Landscape mobile optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+    .canvasContainer {
+        width: 80%;
+        max-width: min(300px, 70vh);
+        padding: 0.25rem;
+    }
+
+    .successOverlay {
+        padding: 0.5rem;
+    }
+
+    .successEmoji {
+        font-size: 2rem;
+    }
+
+    .successWord {
+        font-size: 1.2rem;
+    }
+
+    .headerControls {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
