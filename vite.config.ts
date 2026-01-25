@@ -10,6 +10,13 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'maskable-icon.png'],
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest}'],
+        navigateFallback: '/Byrons-game/index.html',
+        navigateFallbackAllowlist: [/^\/Byrons-game/],
+        skipWaiting: true,
+        clientsClaim: true,
+      },
       manifest: {
         name: "Byron's Game",
         short_name: "Byron's Game",
