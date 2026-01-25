@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #fff 0%, #f0f0f0 100%);
+    gap: 3rem;
+}
+
+.title {
+    font-family: var(--font-fun);
+    font-size: 4rem;
+    color: var(--primary-color);
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}

@@ -1,0 +1,68 @@
+:root {
+  /* Premium Kid Palette - Cartoon/Playful */
+  --primary-color: #FF6B6B;
+  /* Soft Red */
+  --primary-shadow: #D94545;
+
+  --secondary-color: #4ECDC4;
+  /* Teal */
+  --secondary-shadow: #2FA9A1;
+
+  --accent-color: #FFE66D;
+  /* Yellow */
+  --accent-shadow: #D9C035;
+
+  --dark-color: #2F2F2F;
+  --light-color: #F7FFF7;
+
+  --font-main: 'Outfit', sans-serif;
+  --font-fun: 'Fredoka', cursive;
+
+  --spacing-base: 1rem;
+  --radius-lg: 32px;
+  /* Chunky roundness */
+  --radius-md: 20px;
+  --radius-sm: 12px;
+
+  --border-width: 4px;
+  /* Thick cartoon borders */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--light-color);
+  background-image: radial-gradient(var(--secondary-color) 2px, transparent 2px);
+  background-size: 40px 40px;
+  /* Polka dot pattern */
+  color: var(--dark-color);
+  overscroll-behavior: none;
+  user-select: none;
+  -webkit-user-select: none;
+  /* Safari fix */
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+button {
+  font-family: var(--font-fun);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

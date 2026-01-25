@@ -1,0 +1,122 @@
+.hud {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    box-shadow: var(--shadow-card);
+    z-index: 100;
+    min-width: 160px;
+    /* Increased to fit names */
+    transition: transform 0.3s ease;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    color: var(--color-text);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.itemList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    /* Dimmed if not collected */
+    transition: opacity 0.3s ease;
+}
+
+/* Collected State */
+.checkbox.checked~span,
+.checkbox.checked~.itemName {
+    /* Improve visibility when collected */
+    /* Handled by increasing item opacity */
+}
+
+/* Need to target parent .item based on checkbox state? 
+   CSS can't select parent. 
+   We'll handle opacity logic in TSX or just keep it simple.
+   Actually, let's keep it full opacity or add a class to .item if collected.
+*/
+
+.itemName {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.checkbox {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    flex-shrink: 0;
+}
+
+.checkbox.checked {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+
+    80% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .hud {
+        top: auto;
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        display: flex;
+        flex-direction: row;
+        /* Horizontal on mobile bottom? */
+        align-items: center;
+        gap: 1rem;
+        overflow-x: auto;
+    }
+
+    .title {
+        display: none;
+        /* Hide title on mobile bar */
+    }
+
+    .itemList {
+        flex-direction: row;
+    }
+
+    .itemName {
+        display: none;
+        /* Hide text on mobile to save space */
+    }
+}

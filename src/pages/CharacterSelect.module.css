@@ -1,0 +1,50 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-color);
+    gap: 2rem;
+}
+
+.title {
+    font-family: var(--font-fun);
+    font-size: 3rem;
+    color: var(--dark-color);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 90%;
+    max-width: 600px;
+}
+
+.card {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: white;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--player-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.avatar {
+    font-size: 4rem;
+}
+
+.name {
+    font-family: var(--font-fun);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}

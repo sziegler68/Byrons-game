@@ -1,0 +1,101 @@
+.btn {
+    border: var(--border-width) solid transparent;
+    border-radius: var(--radius-md);
+    font-family: var(--font-fun);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: transform 0.1s;
+    /* Solid shadow for cartoon 3D effect */
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:active {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transform: translateY(6px);
+}
+
+/* Variants */
+.primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-shadow);
+    color: white;
+    box-shadow: 0 6px 0 var(--primary-shadow);
+}
+
+.primary:active {
+    box-shadow: 0 0 0 var(--primary-shadow);
+}
+
+.secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-shadow);
+    color: white;
+    box-shadow: 0 6px 0 var(--secondary-shadow);
+}
+
+.secondary:active {
+    box-shadow: 0 0 0 var(--secondary-shadow);
+}
+
+.accent {
+    background-color: var(--accent-color);
+    border-color: var(--accent-shadow);
+    color: var(--dark-color);
+    box-shadow: 0 6px 0 var(--accent-shadow);
+}
+
+.outline {
+    background-color: transparent;
+    border: 3px solid var(--color-text);
+    color: var(--color-text);
+    box-shadow: none;
+}
+
+.outline:active {
+    transform: scale(0.95);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.icon {
+    background-color: white;
+    border: var(--border-width) solid var(--dark-color);
+    color: var(--dark-color);
+    padding: 0.5rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 var(--dark-color);
+}
+
+.icon:active {
+    box-shadow: 0 0 0 var(--dark-color);
+    transform: translateY(4px);
+}
+
+/* Sizes */
+.sm {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+.md {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+}
+
+.lg {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+}
+
+.xl {
+    padding: 1.5rem 3rem;
+    font-size: 2.5rem;
+    /* Bigger for kids */
+    border-radius: var(--radius-lg);
+    border-width: 6px;
+}
