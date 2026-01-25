@@ -1,14 +1,26 @@
 .canvasContainer {
     width: 90%;
-    max-width: 400px;
+    max-width: min(400px, 80vh);
     aspect-ratio: 1;
     position: relative;
     background: white;
     border-radius: var(--radius-lg);
     box-shadow: 0 8px 0 rgba(0, 0, 0, 0.1);
-    padding: 1rem;
+    padding: 0.5rem;
     overflow: hidden;
-    /* Ensure banner stays inside radius */
+    touch-action: none;
+}
+
+.tracingSvg {
+    display: block;
+    touch-action: none;
+}
+
+.headerControls {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 20;
 }
 
 .canvas {
