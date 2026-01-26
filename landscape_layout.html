@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+      Critical Viewport Settings:
+      - width=device-width: Match screen width
+      - initial-scale=1, maximum-scale=1: Prevent zooming
+      - user-scalable=no: Block manual pinch-zoom
+      - viewport-fit=cover: extend into safe areas (notch)
+    -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Landscape Game Layout</title>
+    <style>
+        :root {
+            /* Safe area variables provided by browser */
+            --sat: env(safe-area-inset-top);
+            --sar: env(safe-area-inset-right);
+            --sab: env(safe-area-inset-bottom);
+            --sal: env(safe-area-inset-left);
+
+            --bg-color: #2F2F2F;
+            --game-bg: #4ECDC4;
+        }
+
+        /* 1. Global Reset for Fullscreen */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            /* Prevent scrollbars */
+            background-color: var(--bg-color);
+            font-family: system-ui, sans-serif;
+
+            /* Prevent rubber-banding and selection */
+            overscroll-behavior: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* 2. Main Wrapper - Centers the game logic */
+        #app-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            position: relative;
+        }
+
+        /* 3. The Game Area - Fixed Aspect Ratio */
+        #game-area {
+            /* 
+               Logic:
+               1. Try to be 100% width/height of screen
+               2. But STOP if aspect ratio forces one dimension to exceed viewport
+               3. aspect-ratio keeps it 16:9 
+            */
+            width: 100%;
+            height: 100%;
+            max-width: 177.78vh;
+            /* 16/9 * 100vh = limit width based on height */
+            max-height: 56.25vw;
+            /* 9/16 * 100vw = limit height based on width */
+
+            aspect-ratio: 16/9;
+
+            background-color: var(--game-bg);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+
+            /* Layout inside the game - just for demo */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: clamp(1rem, 5vh, 2rem);
+            color: white;
+            text-align: center;
+        }
+
+        /* 4. Orientation Block - Portrait Overlay */
+        #rotate-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #FF6B6B;
+            color: white;
+            z-index: 9999;
+            display: none;
+            /* Hidden by default (assumes landscape) */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* 5. Media Queries for Orientation */
+
+        /* Show overlay in portrait */
+        @media (orientation: portrait) {
+            #rotate-overlay {
+                display: flex;
+            }
+
+            #app-wrapper {
+                display: none;
+            }
+        }
+
+        /* Landscape specific tweaks (Safe Areas) */
+        @media (orientation: landscape) {
+            #game-area {
+                /* Ensure content isn't covered by notch */
+                /* We don't pad the container if we want letterboxing logic to handle it,
+                   but for a game filling the box, we might want padding inside. */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Content -->
+    <div id="app-wrapper">
+        <div id="game-area">
+            <h1>Game Area (16:9)</h1>
+            <p>Scales to fit without stretching.</p>
+        </div>
+    </div>
+
+    <!-- Portrait Warning -->
+    <div id="rotate-overlay">
+        <div style="font-size: 4rem;">🔄</div>
+        <h2>Please Rotate Device</h2>
+    </div>
+
+</body>
+
+</html>
