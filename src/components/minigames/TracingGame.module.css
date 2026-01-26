@@ -1,7 +1,6 @@
 .canvasContainer {
     width: 90%;
-    max-width: 350px;
-    max-height: 80%;
+    max-width: 400px;
     aspect-ratio: 1;
     position: relative;
     background: white;
@@ -10,11 +9,14 @@
     padding: 0.5rem;
     overflow: hidden;
     touch-action: none;
+    margin: 0 auto;
 }
 
 .tracingSvg {
     display: block;
     touch-action: none;
+    width: 100%;
+    height: 100%;
 }
 
 .headerControls {
@@ -87,5 +89,18 @@
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+/* Landscape Optimization */
+@media (orientation: landscape) and (max-height: 600px) {
+    .canvasContainer {
+        /* Fit within the tight vertical space of landscape mobile */
+        height: 85vh;
+        /* Use height as constraint */
+        width: auto;
+        /* Width follows aspect ratio */
+        max-width: none;
+        /* Remove width constraint */
     }
 }

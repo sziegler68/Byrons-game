@@ -1,37 +1,41 @@
 .container {
-    width: 100%;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--light-color);
     gap: 1rem;
     padding: 1rem;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
 .title {
     font-family: var(--font-fun);
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 5vh, 2.5rem);
     color: var(--dark-color);
+    text-align: center;
+    flex-shrink: 0;
 }
 
 .grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
     align-items: center;
-    max-height: 70%;
-    overflow: auto;
+    width: 100%;
+    overflow-y: auto;
+    padding: 1rem;
 }
 
 .card {
-    width: 120px;
-    height: 140px;
+    /* Responsive sizing based on viewport */
+    width: clamp(100px, 35vw, 160px);
+    aspect-ratio: 0.85;
+    /* Portrait rectangle */
     background-color: white;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +43,8 @@
     border: 4px solid var(--player-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     gap: 0.5rem;
-    transition: all 0.2s;
+    transition: transform 0.1s;
+    cursor: pointer;
     flex-shrink: 0;
 }
 
@@ -48,42 +53,29 @@
 }
 
 .avatar {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 8vw, 4rem);
 }
 
 .name {
     font-family: var(--font-fun);
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     font-weight: 700;
     color: var(--dark-color);
 }
 
-/* Landscape: horizontal row of cards */
-@media (orientation: landscape) {
+/* Landscape Optimization */
+@media (orientation: landscape) and (max-height: 600px) {
     .container {
-        flex-direction: row;
-        gap: 2rem;
-    }
-
-    .title {
-        font-size: 1.5rem;
+        gap: 0.5rem;
     }
 
     .grid {
-        flex-direction: row;
-        max-height: none;
+        align-items: center;
+        height: 100%;
     }
 
     .card {
-        width: 100px;
-        height: 120px;
-    }
-
-    .avatar {
-        font-size: 2.5rem;
-    }
-
-    .name {
-        font-size: 1rem;
+        /* Smaller cards in landscape */
+        width: clamp(90px, 25vw, 130px);
     }
 }
