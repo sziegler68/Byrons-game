@@ -5,6 +5,8 @@ import { StorySelect } from './pages/StorySelect';
 import { StoryBoard } from './pages/StoryBoard';
 import { SettingsScreen } from './pages/SettingsScreen';
 import { TracingGame } from './components/minigames/TracingGame';
+import { GameScaler } from './components/layout/GameScaler';
+import { RotatePhone } from './components/layout/RotatePhone';
 import { STORIES } from './data/stories';
 
 const GameContent = () => {
@@ -49,7 +51,10 @@ const GameContent = () => {
 function App() {
   return (
     <GameProvider>
-      <GameContent />
+      <GameScaler>
+        <RotatePhone />
+        <GameContent />
+      </GameScaler>
     </GameProvider>
   );
 }
